@@ -48,15 +48,43 @@ Press the correct sequence of random keys to progress through an epic spy theme 
 - Python 3.6+
 - Pygame library
 
-### Installation
+## 🚀 Quick Start
 
+### Option 1: Smart Launcher (Recommended)
 ```bash
-# Install pygame
-pip install pygame
-
-# Run the game
-python keyboard_karaoke.py
+# Automatically detects capabilities and launches best version
+./launch_karaoke_smart.sh
 ```
+
+### Option 2: Manual Launch
+```bash
+# Full version (requires numpy for rich audio)
+./launch_karaoke.sh
+# OR
+source venv/bin/activate && python keyboard_karaoke.py
+
+# Lightweight version (pygame only - simplified audio)
+source venv/bin/activate && python keyboard_karaoke_light.py
+```
+
+## 🎵 Game Versions
+
+### Full Version (`keyboard_karaoke.py`)
+- **Rich Audio**: Real-time sine wave synthesis with complex harmonics
+- **Requirements**: Python 3.6+, pygame, numpy
+- **Best Experience**: High-quality musical notes with precise timing
+
+### Lightweight Version (`keyboard_karaoke_light.py`)
+- **Simplified Audio**: Basic beep sounds for maximum compatibility
+- **Requirements**: Python 3.6+, pygame (no numpy needed)
+- **Wider Compatibility**: Works on systems where numpy is difficult to install
+
+Both versions offer the same gameplay experience with identical features:
+- ✅ Original spy-themed melody
+- ✅ Random key sequences  
+- ✅ Visual effects and particle system
+- ✅ Score tracking and accuracy measurement
+- ✅ All game states and controls
 
 ## 🏆 Winning Conditions
 

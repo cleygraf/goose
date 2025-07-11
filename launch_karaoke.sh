@@ -16,9 +16,9 @@ fi
 echo "Activating virtual environment..."
 source venv/bin/activate
 
-# Install/upgrade pygame if needed
+# Install/upgrade dependencies if needed
 echo "Checking dependencies..."
-pip install pygame > /dev/null 2>&1
+pip install pygame numpy > /dev/null 2>&1
 
 echo "🚀 Launching mission..."
 echo "Press SPACE in the game window to start your spy mission!"
