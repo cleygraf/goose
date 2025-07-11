@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude MCP Setup Guide ✨ No Cap</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideDown 1s ease-out;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .emoji {
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        .content {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            color: #fff;
+            display: inline-block;
+            margin: 0.2rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .highlight:hover {
+            transform: scale(1.05);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff4757, #ff6b83);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+            animation: pulse 3s infinite;
+        }
+
+        .pro-tip {
+            background: linear-gradient(135deg, #5DADE2, #48C9B0);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: #fff;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(93, 173, 226, 0.3);
+        }
+
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #ff6b6b;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-list li:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        .social-link {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #ffa726;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+            }
+            50% {
+                box-shadow: 0 15px 40px rgba(255, 71, 87, 0.5);
+            }
+            100% {
+                box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .glass-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Claude MCP Setup Guide</h1>
+            <p class="subtitle">How to Install MCPs on Claude Code Like a Pro 🔥</p>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">
+                <span class="emoji">🤖</span>
+                The Tea ☕
+            </h2>
+            <div class="content">
+                So bestie, this creator was literally struggling with every AI tool under the sun trying to get maximum leverage 💪. Today's mission? Installing <span class="highlight">MCPs (Model Context Protocols)</span> because apparently there are like 5 different places where configs can hide and it's giving chaos energy 😵‍💫. 
+                
+                Our king had to deep dive through Reddit to figure this mess out, so now we don't have to suffer! 🙌
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">
+                <span class="emoji">⚡</span>
+                Claude Code Reality Check
+            </h2>
+            <div class="content">
+                <div class="warning-box">
+                    <strong>LISTEN UP! 📢</strong> Claude Code is absolutely fire 🔥 but it needs a SHORT LEASH! You need proper plans, tests, lints, and type checks or you're literally gonna have a bad time bestie.
+                </div>
+                
+                Fun fact: His friend Dan says you don't need tests (kinda sus ngl 👀) because Claude can write pointless tests, but that's beside the point fr.
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">
+                <span class="emoji">🌐</span>
+                The Holy Grail: claudeog.com
+            </h2>
+            <div class="content">
+                There's this website called <span class="highlight">claudeog.com</span> started by a Reddit moderator (because all great things start on Reddit, period 💯). 
+                
+                <div class="pro-tip">
+                    <strong>Pro Tip:</strong> DON'T let Claude Code set up your MCP server because it will absolutely screw the pooch (terrible phrase but we're keeping it 😭).
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">
+                <span class="emoji">📍</span>
+                Where Your Configs Hide
+            </h2>
+            <div class="content">
+                Your MCP configs can live in different places and it's giving scavenger hunt vibes:
+
+                <ol class="step-list">
+                    <li><strong>Project Specific:</strong> In your project as <span class="highlight">settings.local.json</span></li>
+                    <li><strong>Cloud Folder:</strong> On Mac, you gotta do <span class="highlight">Command + Shift + .</span> to see the dot files (sneaky little things 👀)</li>
+                    <li><strong>Main Config:</strong> Usually in the main <span class="highlight">claude.json</span> file</li>
+                </ol>
+
+                The creator's memories are stored there too - like "don't use pnpm or bun for databases, we use convex" (honestly, mood 😌).
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">
+                <span class="emoji">🛠️</span>
+                How to Actually Do It
+            </h2>
+            <div class="content">
+                <ol class="step-list">
+                    <li>Go to your preferred provider (like convex mcp server 📱)</li>
+                    <li>Grab the exact same object configuration 🎯</li>
+                    <li>Don't let Claude Code automatically do it (seriously, it's NOT the move 🚫)</li>
+                    <li>Manually paste that config where it belongs ✨</li>
+                </ol>
+
+                <div class="warning-box">
+                    When Claude Code tried to set it up automatically, it passed arguments to the command wrong and it was absolutely NOT giving what it was supposed to give 💀
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">
+                <span class="emoji">🔮</span>
+                Future Vibes & Hot Takes
+            </h2>
+            <div class="content">
+                Homeboy thinks the future is all about <span class="highlight">headless mode</span> instead of interactive mode (which everyone's currently using). The documentation goes deep on interactive but he's sensing headless energy in Claude's tone 🔮.
+                
+                <div class="pro-tip">
+                    <strong>Bonus Tea:</strong> There's this guy Dave on Twitter with fire threads about putting tests in loops and piping everything into "fix this" - absolutely genius workflow 🧠✨
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>If you learned something today, don't forget to touch that like button and hit subscribe! 💖</p>
+            <p><em>Peace out! ✌️ Made with ✨ and way too much caffeine</em></p>
+        </div>
+    </div>
+</body>
+</html>
